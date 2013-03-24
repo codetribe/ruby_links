@@ -1,0 +1,33 @@
+.link{:id=> link.id}
+  %h1= link_to link.title, link_path(link.id)
+  .row-fluid.link-description
+    .span3
+      -unless link.img.strip.empty?
+        =image_tag link.img, class: 'link_image'
+      -else
+        =image_tag "link_64.png", class: 'link_image'
+    .span9
+      %p.small-font= link_to link.url
+      %p= link.description
+  .link-details
+    %ul
+      %li=link_to link.comments.count.to_s + " comments", link
+      %li.jewel_count= Jewel.jewel_count({:link=>link}).to_s + ' Jewels'
+      - if current_user
+        -unless link.jeweled_by? current_user
+          %li
+            %span.btn.btn-danger.btn-mini.jewel-it{data:{ id: link.id}}
+              Jewel It!
+        -else
+          %li
+            %span.btn.btn-danger.btn-mini.un-jewel{data:{ id: link.id}}
+              Un Jewel
+      -if current_user
+        %li= link_to "Comment", link, class: "btn btn-danger btn-mini"
+      -else
+        %li= link_to "Comment", new_user_session_path, class: "btn btn-danger btn-mini"
+      %li= link_to "Edit", edit_link_path(link), class: "btn btn-danger btn-mini" if link.user == current_user
+      %li.pull-right
+        .tags
+          - link.tags.each do |tag|
+            =link_to tag.name,tag_path(tag.name)
