@@ -11,7 +11,7 @@ class Link < ActiveRecord::Base
   def jewel_it current_user
     if Jewel.jewel_count({:link=>self, :user=>current_user})==0
       Jewel.create(:link_id=>self.id,:user_id=>current_user.id)
-      self.jewel = self.jewel +1
+      self.jewel = self.jewel+1
       self.save
     end
   end
@@ -21,7 +21,7 @@ class Link < ActiveRecord::Base
   def un_jewel current_user
     if Jewel.jewel_count({:link=>self, :user=>current_user})==1
       Jewel.where("link_id = #{self.id} and user_id = #{current_user.id}").first.destroy
-      self.jewel = self.jewel - 1
+      self.jewel = self.jewel-1
       self.save
     end
   end
