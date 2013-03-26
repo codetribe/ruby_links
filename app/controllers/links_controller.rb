@@ -142,7 +142,7 @@ class LinksController < ApplicationController
   end
 
   def search
-    redirect_to :back, notice: "Search is empty" if params[:s].strip.empty?
+    redirect_to({action: :index}, notice: "Search is empty") if params[:s].strip.empty?
     @links = Link.search(params[:s]).page(params[:page]).per(20)
   end
 end
