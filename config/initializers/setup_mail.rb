@@ -1,7 +1,8 @@
 ActionMailer::Base.smtp_settings = {
-  :address              => "smtp.zoho.com",
-  :port                 => 465,
+  :address              => "smtp.gmail.com",
+  :port                 => 587,
   :user_name            => APP_CONFIG["email"],
   :password             => APP_CONFIG["password"],
+  :authentication		=> "plain",
   :enable_starttls_auto => true
 }
