@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130322112134) do
+ActiveRecord::Schema.define(:version => 20130326093534) do
 
   create_table "comments", :force => true do |t|
     t.text     "content"
@@ -36,9 +36,10 @@ ActiveRecord::Schema.define(:version => 20130322112134) do
     t.string   "title"
     t.text     "description"
     t.string   "img"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
     t.integer  "user_id"
+    t.integer  "jewel",       :default => 0
   end
 
   add_index "links", ["user_id"], :name => "index_links_on_user_id"

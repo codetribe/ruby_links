@@ -9,13 +9,21 @@ class Link < ActiveRecord::Base
 
 
   def jewel_it current_user
-    Jewel.create(:link_id=>self.id,:user_id=>current_user.id) if Jewel.jewel_count({:link=>self, :user=>current_user})==0
+    if Jewel.jewel_count({:link=>self, :user=>current_user})==0
+      Jewel.create(:link_id=>self.id,:user_id=>current_user.id)
+      self.jewel = self.jewel +1
+      self.save
+    end
   end
 
   ##
   # Used when the user wants to remove his jewel from the link
   def un_jewel current_user
-    Jewel.where("link_id = #{self.id} and user_id = #{current_user.id}").first.destroy if Jewel.jewel_count({:link=>self, :user=>current_user})==1
+    if Jewel.jewel_count({:link=>self, :user=>current_user})==1
+      Jewel.where("link_id = #{self.id} and user_id = #{current_user.id}").first.destroy
+      self.jewel = self.jewel - 1
+      self.save
+    end
   end
 
   ##
