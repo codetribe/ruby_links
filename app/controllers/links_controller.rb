@@ -1,6 +1,6 @@
 class LinksController < ApplicationController
 
-  before_filter :authenticate_user!, :except=> ["index","show","tag","tags_source","search_tags"]
+  before_filter :authenticate_user!, :except=> ["index","show","tag","tags_source","search_tags", "search"]
 
   # GET /links
   # GET /links.json

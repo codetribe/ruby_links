@@ -7,7 +7,7 @@
       -else
         =image_tag "link_64.png", class: 'link_image'
     .span9
-      %p.small-font= link_to link.url
+      %p.small-font= link_to link.url, link.url
       %p= link.description
   .link-details
     %ul
