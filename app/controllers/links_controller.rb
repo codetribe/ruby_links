@@ -1,6 +1,8 @@
 class LinksController < ApplicationController
 
   before_filter :authenticate_user!, :except=> ["index","show","tag","tags_source","search_tags", "search"]
+  before_filter :link_must_belng_to_user, :only=> [:update, :destroy, :edit]
+
 
   # GET /links
   # GET /links.json
@@ -46,7 +48,6 @@ class LinksController < ApplicationController
 
   # GET /links/1/edit
   def edit
-    @link = Link.find(params[:id])
     @current_tags=@link.tags.join(',')
   end
 
@@ -144,5 +145,10 @@ class LinksController < ApplicationController
   def search
     redirect_to({action: :index}, notice: "Search is empty") if params[:s].strip.empty?
     @links = Link.search(params[:s]).page(params[:page]).per(20)
+  end
+
+  def link_must_elong_to_user
+    @link = Link.find(params[:id])
+    redirect_to(links_path, notice: "Oops! You can't do thothis if you did not create the link") unless @link.user == curent_user
   end
 end
