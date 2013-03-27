@@ -13,3 +13,4 @@
 
 /config/config.yml
 /config/database.yml
+/app/views/links/_google_analytics.html.erb
