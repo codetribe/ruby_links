@@ -1,7 +1,7 @@
 class LinksController < ApplicationController
 
   before_filter :authenticate_user!, :except=> ["index","show","tag","tags_source","search_tags", "search"]
-  before_filter :link_must_belng_to_user, :only=> [:update, :destroy, :edit]
+  before_filter :link_must_belong_to_user, :only=> [:update, :destroy, :edit]
 
 
   # GET /links
@@ -147,8 +147,8 @@ class LinksController < ApplicationController
     @links = Link.search(params[:s]).page(params[:page]).per(20)
   end
 
-  def link_must_elong_to_user
+  def link_must_belong_to_user
     @link = Link.find(params[:id])
-    redirect_to(links_path, notice: "Oops! You can't do thothis if you did not create the link") unless @link.user == curent_user
+    redirect_to(links_path, notice: "Oops! You can't do thothis if you did not create the link") unless @link.user == current_user
   end
 end
