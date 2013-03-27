@@ -17,11 +17,12 @@
         - @link.tags.each do |tag|
           =link_to tag.name,tag_path(tag.name)
 %br
-- if @link.belongs_to_user? current_user
-  = link_to 'Edit', edit_link_path(@link), class: "btn btn-danger"
-
 - if current_user
   = link_to 'Add Comment', '#',:id=>'show-comment-field', class: "btn btn-danger"
+
+- if @link.belongs_to_user? current_user
+  = link_to 'Edit', edit_link_path(@link), class: "btn btn-danger"
+  = link_to 'Delete', @link, method: :delete, class: "btn btn-danger"
 
 %hr
 #comments
