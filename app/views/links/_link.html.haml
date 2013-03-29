@@ -1,5 +1,7 @@
 .link{:id=> link.id}
-  %h1= link_to link.title, link_path(link.id)
+  %h1
+    %span.link-num= "#"+link.id.to_s
+    = link_to link.title, link_path(link.id)
   .row-fluid.link-description
     .span3
       -unless link.img.strip.empty?
