@@ -12,7 +12,27 @@
  *= require_tree ../../../vendor/assets/stylesheets/.
  *= require_tree .
  */
-/* not being used aon */
+
+
+
+#devise-page.span5,#devise-page.span6
+{
+
+  margin:0 auto;
+  float:none;
+  background-image: url('white_wall_hash.png');
+  background-repeat: repeat;
+	-moz-border-radius: 15px;
+  border-radius: 15px;
+  padding: 15px;
+}
+
+#devise-page .form-actions
+{
+  background-image: url('cloth_alike.png');
+  background-repeat: repeat;
+}
+
  hr.dotted {
     border: 0;
     border-bottom: 1px dashed #D6D6D6;

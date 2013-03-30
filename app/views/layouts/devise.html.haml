@@ -44,8 +44,8 @@
           %div{class: "alert alert-#{ name == :notice ? 'success' : 'warning'} "}
             %button.close{:type=>"button", :data=>{:dismiss=>"alert"}}x
             = content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String)
-        .span9
-          = yield
+
+        = yield
 
       %footer
         %p &copy; Ruby Links 2012
