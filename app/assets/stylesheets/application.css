@@ -14,7 +14,6 @@
  */
 
 
-
 #devise-page.span5,#devise-page.span6
 {
 
@@ -32,6 +31,28 @@
   background-image: url('cloth_alike.png');
   background-repeat: repeat;
 }
+
+.breadcrumb
+{
+  height: 30px;
+}
+.breadcrumb li
+{
+  line-height: 33px;
+}
+.icon-home {
+color: #bd362f;
+}
+a:link.with-icon
+{
+  text-decoration: none;
+}
+
+.breadcrumb
+{
+  font-size: 20px;
+}
+/* not being used aon */
 
  hr.dotted {
     border: 0;
