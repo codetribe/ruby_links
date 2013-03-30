@@ -1,8 +1,11 @@
 class LinksController < ApplicationController
 
-  before_filter :authenticate_user!, :except=> ["index","show","tag","tags_source","search_tags", "search"]
+  before_filter :authenticate_user!, :except=> ["index","show","tag","tags_source","search_tags", "search","testing"]
   before_filter :link_must_belong_to_user, :only=> [:update, :destroy, :edit]
 
+
+  def testing
+  end
 
   # GET /links
   # GET /links.json

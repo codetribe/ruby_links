@@ -1,0 +1,17 @@
+%br
+%br
+%br
+.span6#devise-page
+  %legend Resend confirmation instructions
+
+  = form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post,:class=>"form-horizontal" }) do |f|
+
+
+    .control-group
+      = f.label :email,:class=>"control-label"
+      .controls
+        = f.email_field :email,:class=>"input-xlarge"
+
+      .form-actions
+        = f.button "<i class='icon-ok'></i>&nbsp;Resend confirmation instructions".html_safe, :class=>"btn btn-primary",:type=>"submit"
+        = render "devise/shared/links"

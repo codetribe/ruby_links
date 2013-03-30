@@ -8,7 +8,7 @@ RubyLinks::Application.routes.draw do
   get '/links/tags_source'=>'links#tags_source'
   get '/links/get_images'=>'links#get_images'
   get '/links/jewel_it/:id'=>'links#jewel_it',:as=>:jewel_it
-
+  get '/links/testing' => 'links#testing'
   get '/links/search_tags'=>'links#search_tags'
   get '/links/tag/:tag'=>'links#tag',:as=>:tag
   get '/links/search/:s' => 'links#search', as: :search
