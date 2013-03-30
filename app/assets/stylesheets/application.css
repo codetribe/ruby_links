@@ -148,9 +148,10 @@ textarea.pretty-look{
 	height: 300px;
 }
 
-footer{
+footer.main{
 	border-top: 1px solid #bbb;
 	padding-top: 5px;
 	text-align: center;
-	margin-top: 15px;
+	margin-top: 32px;
+	position: static;
 }
