@@ -2,7 +2,7 @@
   .well
     .span1= link_to image_tag('home_32.png'), {action: :index}, class: "home-icon"
     .span5
-      %legend=@title
+      %legend.no-underline=@title
     .span6= render partial: 'search_form'
 #links= render @links
 
