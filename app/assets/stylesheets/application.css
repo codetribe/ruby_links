@@ -12,6 +12,27 @@
  *= require_tree ../../../vendor/assets/stylesheets/.
  *= require_tree .
  */
+
+.breadcrumb
+{
+  height: 30px;
+}
+.breadcrumb li
+{
+  line-height: 33px;
+}
+.icon-home {
+color: #bd362f;
+}
+a:link.with-icon
+{
+  text-decoration: none;
+}
+
+.breadcrumb
+{
+  font-size: 20px;
+}
 /* not being used aon */
  hr.dotted {
     border: 0;
