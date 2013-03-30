@@ -145,6 +145,8 @@ class LinksController < ApplicationController
   def search
     redirect_to({action: :index}, notice: "Search is empty") if params[:s].strip.empty?
     @links = Link.search(params[:s]).page(params[:page]).per(20)
+    @title = "Result for #{params[:s]}"
+    render :index
   end
 
   def link_must_belong_to_user

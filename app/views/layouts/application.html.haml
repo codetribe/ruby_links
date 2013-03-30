@@ -54,9 +54,6 @@
             %div{class: "alert alert-#{ name == :notice ? 'success' : 'warning'} "}
               %button.close{:type=>"button", :data=>{:dismiss=>"alert"}}x
               = content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String)
-          = form_tag({action: :search}, method: :get, class: "form-inline") do
-            = text_field_tag :s, params[:s], placeholder: "Type Somethin"
-            = submit_tag "Search", class: "btn btn-danger"
           = yield
 
       %footer

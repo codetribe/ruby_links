@@ -1,0 +1,3 @@
+= form_tag({action: :search}, method: :get, class: "form-inline pull-right") do
+  = text_field_tag :s, params[:s], placeholder: "Type Somethin"
+  = submit_tag "Search", class: "btn btn-danger"
