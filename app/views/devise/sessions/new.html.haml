@@ -1,0 +1,26 @@
+%br
+%br
+%br
+.span5#devise-page
+  %legend Sign in
+
+  = form_for(resource, :as => resource_name, :url => session_path(resource_name),:html=>{:class=>"form-horizontal"}) do |f|
+    .control-group
+      = f.label :email,:class=>"control-label"
+      .controls
+        = f.email_field :email,:class=>"input"
+
+    .control-group
+      = f.label :password,:class=>"control-label"
+      .controls
+        = f.password_field :password,:class=>"input"
+
+    - if devise_mapping.rememberable?
+      .controls
+        %label.checkbox
+          %input(type='checkbox' id="user_remember_me"  name="user[remember_me]")
+          Remember me
+
+    .form-actions
+      = f.button "<i class='icon-ok'></i>&nbsp;Sign in".html_safe, :class=>"btn btn-primary",:type=>"submit"
+      = render "devise/shared/links"
