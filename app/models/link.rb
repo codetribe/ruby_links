@@ -86,4 +86,15 @@ class Link < ActiveRecord::Base
     # p query
     self.where(query) # sql injection attack must be checked
   end
+
+  ##
+  # returns youtube embed html if its a youtube video
+  def youtube
+    youtube_embed = '<iframe title="YouTube video player" width="640" height="390" src="http://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>'    
+    if self.url =~ /.*http:\/\/(\w+\.)?youtube.com\/watch.*/
+      self.url.match(/v=(\w+)/)
+      return youtube_embed.gsub(/VIDEO_ID/, $1)  
+    end
+    return nil
+  end
 end
