@@ -6,7 +6,9 @@ class UserController < ApplicationController
   end
   
   def search
-    @links = current_user.search_links(params[[:s]).page(params[:page]).per(20)
+    @title = "Search for #{params[:s]}"
+    @links = current_user.search_links(params[:s]).page(params[:page]).per(20)
+    render :profile
   end
 
 end
