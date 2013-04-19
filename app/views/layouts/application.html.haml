@@ -37,7 +37,7 @@
               .pull-right
                 =link_to "Add Link",new_link_path,:class=>"btn btn-primary"
                 .btn-group
-                  %a.btn
+                  %a.btn{href: "/user/profile"}
                     %i.icon-user
                     = current_user.email
                   = link_to "Logout",destroy_user_session_path,:method=>"delete",:class=>"btn btn-danger"

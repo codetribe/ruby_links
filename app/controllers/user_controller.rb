@@ -1,7 +1,7 @@
 class UserController < ApplicationController
 
   def profile
-    @title = current_user.email
+    @title = "Your Links"
     @links = Kaminari.paginate_array(current_user.links | current_user.jeweled_links).page(params[:page]).per(20)
   end
   
