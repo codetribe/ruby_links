@@ -1,1 +1,13 @@
-%h1= current_user.email
+.row-fluid
+  %ul.breadcrumb
+    %li
+      %a.with-icon( href="/")
+        %i.icon-home
+        %span.divider /
+    %li= @title
+    %li.pull-right
+      = render partial: 'search_form'
+
+#links= render @links
+
+=paginate @links, theme: "bootstrap"

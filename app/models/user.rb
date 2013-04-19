@@ -12,4 +12,9 @@ class User < ActiveRecord::Base
   has_many :links
   has_many :jewels
   has_many :comments
+  has_many :jeweled_links, through: :jewels, source: :link
+  
+  def search_links
+  
+  end
 end
