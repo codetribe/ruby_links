@@ -11,6 +11,6 @@
     %li.pull-right
       = render partial: 'search_form'
 
-#links= render @links
+#links= render partial: 'links/link', collection: @links
 
 =paginate @links, theme: "bootstrap"
