@@ -19,7 +19,8 @@ class LinksController < ApplicationController
   end
 
   def tag
-    tag=params[:tag]
+    #tag=params[:tag] # this gave an error when tags like ruby 2.0 was used
+    tag = URI.decode(request.url.split(/\//).last)
     @title=tag
     @links=Link.tagged_with(tag).order('created_at DESC').page(params[:page]).per(20)
 
