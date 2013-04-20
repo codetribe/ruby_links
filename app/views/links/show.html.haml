@@ -7,6 +7,7 @@
       =image_tag "link_64.png", class: 'link_image'
   .span9
     %p= raw(@link.youtube) if @link.youtube
+    %p= raw(@link.vimeo) if @link.vimeo
     %p
       %b URL:
       = link_to @link.url, @link.url

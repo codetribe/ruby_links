@@ -97,4 +97,14 @@ class Link < ActiveRecord::Base
     end
     return nil
   end
+  
+  ##
+  # returns vimeo embed html if its a youtube video
+  def vimeo
+    vimeo_embed = "<iframe src=\"http:\/\/player.vimeo.com\/video\/VIDEO_ID\" width=\"640\" height=\"390\" frameborder=\"0\" webkitAllowFullScreen mozallowfullscreen allowFullScreen><\/iframe>"    
+    if self.url =~ /.*http:\/\/(\w+\.)?vimeo.com\/(\d+).*/
+      return vimeo_embed.gsub(/VIDEO_ID/, $2)  
+    end
+    return nil
+  end
 end
