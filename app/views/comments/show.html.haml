@@ -1,15 +1,11 @@
-%p#notice= notice
-
-%p
-  %b Content:
-  = @comment.content
-%p
-  %b Link:
-  = @comment.link
-%p
-  %b User:
-  = @comment.user
-
-= link_to 'Edit', edit_comment_path(@comment)
-\|
-= link_to 'Back', comments_path
+%div.comment{:id=>'comment_'+@comment.id.to_s}
+  %p.comment-content
+    =@comment.content
+  %strong.comment-user
+    =' - '+@comment.user.email+' - '+@comment.created_at.to_s(:long)
+  - if @comment.belongs_to_user? current_user
+    &nbsp;
+    %a.edit-comment.hidden{:href=>"#comment_#{@comment.id}",:data=>{:id=>@comment.id}}
+      %i.icon-pencil.red
+    %a.delete-comment.hidden{:href=>"#",:data=>{:id=>@comment.id}}
+      %i.icon-remove.red

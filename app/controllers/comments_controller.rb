@@ -3,6 +3,7 @@ class CommentsController < ApplicationController
   # GET /comments.json
   before_filter :authenticate_user!
   before_filter :comment_must_belong_to_user, :except =>[:new, :show, :index, :create]
+
   def index
     @comments = Comment.all
 
@@ -46,10 +47,10 @@ class CommentsController < ApplicationController
     @comment.user=current_user
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @comment.link, notice: 'Comment was successfully created.' }
+        format.html {render "show", :layout=>false }
         format.json { render json: {:id=>@comment.id,:comment=>@comment.content,:user_email=>@comment.user.email,:time=>@comment.created_at.to_s(:long),:user_id=>@comment.user_id}, status: :created }
       else
-        format.html { render action: "new" }
+        format.html 
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end
