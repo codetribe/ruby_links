@@ -3,8 +3,8 @@ class Link < ActiveRecord::Base
   acts_as_taggable
   validates :url, :title, presence: true
   validates :url, uniqueness: true
-  has_many :jewels
-  has_many :comments
+  has_many :jewels, dependent: :destroy
+  has_many :comments, dependent: :destroy
   belongs_to :user
 
 

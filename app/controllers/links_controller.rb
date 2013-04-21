@@ -54,6 +54,7 @@ class LinksController < ApplicationController
 
   # GET /links/1/edit
   def edit
+    @title = "Edit Link"
     @current_tags=@link.tags.join(',')
   end
 
