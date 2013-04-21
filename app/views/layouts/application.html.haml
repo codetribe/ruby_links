@@ -19,30 +19,30 @@
     = render partial: "links/google_analytics" if Rails.env == "production" # track logs only in production
 
   %body
-    .navbar.navbar-fluid-top
-      .navbar-inner
-        .container-fluid
-          %a.btn.btn-navbar(data-target=".nav-collapse" data-toggle="collapse")
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          %a.brand(href="/") Ruby Links
-          .container.nav-collapse.pull-right
-            %ul.nav.pull-right
-            -if !user_signed_in?
-              .btn-group
-                = link_to "Login",new_user_session_path,:class=>"btn"
-                = link_to "Sign Up",new_user_registration_path,:class=>"btn"
-            -else
-              .pull-right
-                =link_to "Add Link",new_link_path,:class=>"btn btn-primary"
-                .btn-group
-                  %a.btn{href: "/user/profile"}
-                    %i.icon-user
-                    = current_user.email
-                  = link_to "Logout",destroy_user_session_path,:method=>"delete",:class=>"btn btn-danger"
+    .rl-header
+      %a(href= '/')
+        .logo
+          = image_tag ('logo.png')
 
-    .container-fluid
+      %ul.rl-header-nav.pull-right
+        -if !user_signed_in?
+          %li
+            = link_to "Login",new_user_session_path
+          %li 
+            = link_to "Sign Up",new_user_registration_path
+        -else
+          %li.add-link-nav
+            =link_to "<i class='icon-link'></i> Add Link".html_safe,new_link_path
+          %li
+            %a{href: "/user/profile"}
+              %i.icon-user
+              = current_user.email
+          %li
+            = link_to "Logout",destroy_user_session_path,:method=>"delete"
+
+                
+
+    .container-fluid(style="min-height:100%;")
 
       .row-fluid
 
@@ -56,11 +56,11 @@
               = content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String)
           = yield
 
-      %footer.main
-        %p
-          &copy; Ruby Links (Big Bang - Infinite)
-          \|
-          =link_to "Github", "http://github.com/codetribe/ruby_links"
+    %footer.main
+      %p
+        &copy; Ruby Links (Big Bang - Infinite)
+        \|
+        =link_to "Github", "http://github.com/codetribe/ruby_links"
 
     /
       Javascripts

@@ -35,7 +35,10 @@
 .breadcrumb
 {
   height: 30px;
-}
+  font-size: 20px;
+  border: 1px solid #E34646;
+  /*background-color: white !important; */
+}	
 .breadcrumb li
 {
   line-height: 33px;
@@ -48,10 +51,6 @@ a:link.with-icon
   text-decoration: none;
 }
 
-.breadcrumb
-{
-  font-size: 20px;
-}
 /* not being used aon */
 
  hr.dotted {
@@ -170,9 +169,84 @@ textarea.pretty-look{
 }
 
 footer.main{
-	border-top: 1px solid #bbb;
+	border-top: 2px solid #E34646;
 	padding-top: 5px;
 	text-align: center;
 	margin-top: 32px;
-	position: static;
+	position: relative;
+	left: 0; 
+	right: 0;
+	height: 50px;
+	background-color: #f5f5f5;
+	line-height: 50px;
+ 
 }
+
+
+.rl-header {
+	
+
+	border-bottom: 2px solid #E34646;
+	margin-bottom: 15px;
+	height: 65px;
+	padding-right: 50px;
+	background-color: #f5f5f5;
+}
+
+.rl-header .logo{
+	float: left;
+	padding-left: 10px;
+}
+
+ul.rl-header-nav
+{
+	float: right;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	list-style: none;
+	
+
+
+}
+
+
+ul.rl-header-nav li{
+	float: left;
+	margin: 0 0 0 2px;
+	padding: 0;
+	position: relative;
+	background-color: #E34646;
+}
+
+ul.rl-header-nav li:hover{
+	float: left;
+	margin: 0 0 0 2px;
+	padding: 0;
+	position: relative;
+	background-color: #E66A6A;
+}
+
+ul.rl-header-nav li.active{
+	float: left;
+	margin: 0 0 0 2px;
+	padding: 0;
+	position: relative;
+	background-color: #E66A6A;
+}
+
+ul.rl-header-nav li a{
+	display: block;
+	height: 65px;
+	line-height: 65px;
+	margin-top: 0 !important;
+	margin-left: 0 !important;
+	margin-bottom: 0 !important;
+	padding: 0 12px;
+	margin-right: -2px;
+	text-decoration: none;
+	color: white;
+	font-size: 110%;
+}
+
+
