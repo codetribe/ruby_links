@@ -1,0 +1,9 @@
+.row-fluid
+  %ul.breadcrumb
+    %li
+      %a.with-icon( href="/")
+        %i.icon-home
+        %span.divider /
+    %li= @title
+    %li.pull-right
+      = render partial: 'search_form'

@@ -32,6 +32,7 @@ class LinksController < ApplicationController
   # GET /links/1.json
   def show
     @link = Link.find(params[:id])
+    @title = @link.title
     @comments=@link.comments.page(params[:page]).per(20)
     respond_to do |format|
       format.html # show.html.erb
@@ -42,6 +43,7 @@ class LinksController < ApplicationController
   # GET /links/new
   # GET /links/new.json
   def new
+    @title = "Submit a Link"
     @link = Link.new
     @current_tags=""
     respond_to do |format|
