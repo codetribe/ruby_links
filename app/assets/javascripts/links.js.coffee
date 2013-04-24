@@ -51,16 +51,16 @@ jQuery ->
     goToByScroll('comment-field')
     return null
 
-  #Later ill do the div referesh method.. I wanna have fun passing around json ;)
+  #Later ill do the div referesh method.. I wanna have fun passing around json ;).... well.. its not that fun I guess :(
   $('#comment-form').on 'submit', ->
     $.post this.action, $(this).serialize(), (comment)->
-      comment_text="<div class='comment' id='comment_"+comment.id+"'><span class='comment-content'>"+comment.comment+"</span><strong class='comment-user'> - "
-      comment_text+="<br/>-&nbsp;"+comment.user_email+' - '+comment.time
-      comment_text+="</strong> &nbsp;<a class='edit-comment hidden' data-id='"+comment.id+"' href='#comment_"+comment.id+"'><i class='icon-pencil red'></i></a>&nbsp;<a class='delete-comment hidden' data-id='"+comment.id+"' href='#'><i class='icon-remove red'></i></a></div>"
-      $('#comments').append(comment_text).show('slow')
+      # comment_text="<div class='comment' id='comment_"+comment.id+"'><span class='comment-content'>"+comment.comment+"</span><strong class='comment-user'> - "
+      # comment_text+="<br/>-&nbsp;"+comment.user_email+' - '+comment.time
+      # comment_text+="</strong> &nbsp;<a class='edit-comment hidden' data-id='"+comment.id+"' href='#comment_"+comment.id+"'><i class='icon-pencil red'></i></a>&nbsp;<a class='delete-comment hidden' data-id='"+comment.id+"' href='#'><i class='icon-remove red'></i></a></div>"
+      $('#comments').append(comment).show('slow')
       $('#comment-field').addClass('hidden').show('slow')
       $('#comment_content').val('')
-    , 'json'
+    , 'html'
     return false
 
   $('#comments').on 'mouseover','.comment',->

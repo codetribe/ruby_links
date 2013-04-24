@@ -1,5 +1,5 @@
 =form_for(@comment, remote: true) do |f|
-  = f.text_area :content, class: "pretty-look"
+  = f.text_area :content, class: "rl-comment-field",:rows=>3
   %br
-  = f.submit "Update", class: "btn btn-danger"
-  = f.submit "Cancel", class: "btn btn-danger cancel-cmt-update"
+  = f.submit "Update", class: "btn btn-danger btn-mini"
+  = f.submit "Cancel", class: "btn btn-danger cancel-cmt-update btn-mini"

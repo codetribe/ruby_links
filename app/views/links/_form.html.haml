@@ -35,6 +35,7 @@
       = f.text_field :img, :class=>"control-label",:id=>"image-field", placeholder: "Image URL",:style=>"width: 40%;"
 
   .form-actions
+    = link_to "Cancel", :back, :class=>"btn btn-danger"
     = f.submit 'Save',:class=>"btn btn-primary"
 
 :javascript
