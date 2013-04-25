@@ -31,11 +31,12 @@
             %ul.nav.pull-right
             -if !user_signed_in?
               .btn-group
+                =link_to "<i class='icon-link'></i> Add Link".html_safe,new_link_path,:class=>"btn btn-primary"
                 = link_to "Login",new_user_session_path,:class=>"btn"
                 = link_to "Sign Up",new_user_registration_path,:class=>"btn"
             -else
               .pull-right
-                =link_to "Add Link",new_link_path,:class=>"btn btn-primary"
+                =link_to "<i class='icon-link'></i> Add Link".html_safe,new_link_path,:class=>"btn btn-primary"
                 .btn-group
                   %a.btn{href: "/user/profile"}
                     %i.icon-user
