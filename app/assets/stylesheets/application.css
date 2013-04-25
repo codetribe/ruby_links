@@ -36,7 +36,6 @@
 {
   height: 30px;
   font-size: 20px;
-  border: 1px solid #E34646;
   /*background-color: white !important; */
 }	
 .breadcrumb li
@@ -186,19 +185,39 @@ footer.main{
 .rl-header {
 	
 
-	border-bottom: 2px solid #E34646;
 	margin-bottom: 15px;
 	height: 65px;
 	padding-right: 50px;
 	background-color: #f5f5f5;
+
+	
+	border-top: 1px solid #DB9C9C;
+	border-bottom: 1px solid #DB9C9C;
+	
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.top-nav {
+	
+
+	height: 30px;
+	padding-right: 50px;
 }
 
 .rl-header .logo{
 	float: left;
 	padding-left: 10px;
+	padding-top: 5px;
+	height: 60px;
+	width: 300px;
 }
 
-ul.rl-header-nav
+ul.top-nav-list
 {
 	float: right;
 	margin: 0;
@@ -211,42 +230,23 @@ ul.rl-header-nav
 }
 
 
-ul.rl-header-nav li{
+ul.top-nav-list li{
 	float: left;
-	margin: 0 0 0 2px;
 	padding: 0;
 	position: relative;
-	background-color: #E34646;
+
 }
 
-ul.rl-header-nav li:hover{
-	float: left;
-	margin: 0 0 0 2px;
-	padding: 0;
-	position: relative;
-	background-color: #E66A6A;
-}
 
-ul.rl-header-nav li.active{
-	float: left;
-	margin: 0 0 0 2px;
-	padding: 0;
-	position: relative;
-	background-color: #E66A6A;
-}
-
-ul.rl-header-nav li a{
+ul.top-nav-list li a{
 	display: block;
-	height: 65px;
-	line-height: 65px;
 	margin-top: 0 !important;
 	margin-left: 0 !important;
 	margin-bottom: 0 !important;
-	padding: 0 12px;
-	margin-right: -2px;
+	margin-right: 10px;
 	text-decoration: none;
-	color: white;
-	font-size: 110%;
+	color: #E34646;
+	line-height: 30px;
 }
 
 

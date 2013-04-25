@@ -18,21 +18,24 @@
     = javascript_include_tag "application"
 
   %body
+    .top-nav
+      .row
+        %ul.top-nav-list
+          -if !user_signed_in?
+            %li
+              = link_to "Login",new_user_session_path
+          -else
+            %li
+              %a{href: "/user/profile"}
+                %i.icon-user
+                = current_user.email
+                | 
+              %li
+                = link_to "Logout",destroy_user_session_path,:method=>"delete"
     .rl-header
       %a(href= '/')
         .logo
           = image_tag ('logo.png')
-      %ul.rl-header-nav.pull-right
-        -if !user_signed_in?
-          %li
-            = link_to "Login",new_user_session_path
-        -else
-          %li
-            %a{href: "/user/profile"}
-              %i.icon-user
-              = current_user.email
-            %li
-              = link_to "Logout",destroy_user_session_path,:method=>"delete"
 
     .container-fluid
 
